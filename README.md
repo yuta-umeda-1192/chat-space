@@ -1,6 +1,6 @@
 # chat-space
 
-## membersテーブル
+## groupsテーブル
 
 Column|Type|Options|
 |------|----|-------|
@@ -8,8 +8,9 @@ Column|Type|Options|
 |group_id|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :group
-- belongs_to :user
+- has_many :users
+- has_many :messages
+
 
 ## userテーブル
 
@@ -23,6 +24,16 @@ Column|Type|Options|
 - has_many :messages
 - has_many :members
 
+## membersテーブル
+
+Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :group
+- belongs_to :user
 
 ## messageテーブル
 
