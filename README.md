@@ -4,13 +4,14 @@
 
 Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|group_id|references|null: false, foreign_key: true|
+|name|references|null: false, foreign_key: true|
+
 
 ### Association
-- has_many :users
-- has_many :messages
-
+- belong_to :group
+- belong_to :user 
+- has_many :users, through: members
+- has_many :members 
 
 ## userテーブル
 
