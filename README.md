@@ -4,12 +4,10 @@
 
 Column|Type|Options|
 |------|----|-------|
-|name|references|null: false, foreign_key: true|
+|name|string|null: false,|
 
 
-### Association
-- belong_to :group
-- belong_to :user 
+### Association 
 - has_many :users, through: members
 - has_many :members 
 
@@ -35,12 +33,13 @@ Column|Type|Options|
 ### Association
 - belongs_to :group
 - belongs_to :user
+- has_many:members
 
 ## messageテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|boy|text|null: false,|
+|body|text|
 |image|string|
 |group_id|references|null: false, foreign_key: true|
 |user_id|references|null: false, foreign_key:true|
