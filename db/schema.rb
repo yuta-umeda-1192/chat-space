@@ -10,30 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191127121728) do
+ActiveRecord::Schema.define(version: 20191130143556) do
 
   create_table "groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.string   "name",       limit: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
   end
 
   create_table "menbers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.integer  "group_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["group_id"], name: "index_menbers_on_group_id", using: :btree
-    t.index ["user_id"], name: "index_menbers_on_user_id", using: :btree
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_menbers_on_group_id_id", using: :btree
+    t.index ["user_id"], name: "index_menbers_on_user_id_id", using: :btree
   end
 
   create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id"
+    t.string   "content"
+    t.string   "image"
     t.integer  "group_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.text     "body",        limit: 65535
-    t.string   "name",        limit: 1
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_messages_on_group_id", using: :btree
     t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
@@ -52,4 +52,6 @@ ActiveRecord::Schema.define(version: 20191127121728) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "messages", "groups"
+  add_foreign_key "messages", "users"
 end
