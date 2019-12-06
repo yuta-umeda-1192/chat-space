@@ -21,7 +21,7 @@
           padding-right: 5px;
         }
       }
-    }
+    } 
     .right-header {
       border: 1px solid $light_blue;
       color: $light_blue;
@@ -41,7 +41,8 @@
     background-color: #FAFAFA;
     box-sizing: border-box;
     padding: 46px 40px 0;
-    height: calc(100% - 100px - 90px);
+    height: calc(100vh - 100px - 90px);
+    overflow: scroll;
     .message {
       .upper-message {
         display: flex;
@@ -82,7 +83,6 @@
       background-color: $white;
       float: left;
       height: 50px;
-      padding-right: 10px;
       &__image {
         font-size: 20px;
         line-height: 50px;
