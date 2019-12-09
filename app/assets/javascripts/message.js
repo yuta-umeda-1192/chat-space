@@ -42,8 +42,8 @@ $(function() {
       var html = buildHTML(data);
       $('.messages').append(html);
       ScrollToNewMessage();
-      $('.form__text').val('');
-      $(".form__mask__sbmit").prop('disabled', false);
+      $('.new_message')[0].reset();
+      $(".form__mask__submit").prop('disabled', false);
 	  })
 	  .fail(function(){
 	    alert('error');
