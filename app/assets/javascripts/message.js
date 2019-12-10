@@ -38,16 +38,16 @@ $(function() {
       processData: false,
       contentType: false
     })
-    .done(function(data){
-      var html = buildHTML(data);
-      $('.messages').append(html);
+          .done(function(data){
+                  var html = buildHTML(data);
+                $('.messages').append(html);
       ScrollToNewMessage();
-      $('.new_message')[0].reset();
-      $(".form__mask__submit").prop('disabled', false);
-	  })
-	  .fail(function(){
-	    alert('error');
-	  });
+                $('.new_message')[0].reset();
+                $(".form__mask__submit").prop('disabled', false);
+	        })
+	        .fail(function(){
+	          alert('error');
+	        });
   })
 
 var reloadMessages = function() {
