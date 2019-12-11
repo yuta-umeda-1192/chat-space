@@ -3,7 +3,7 @@ $(function() {
   function buildHTML(message){
     image = ( message.image ) ? `<img class= "lower-message__image" src=${message.image} >` : "";
   	  var html =
-  	    `<div class="message" data-message-id= "${message.id}">
+  	    `<div class="message" data-id= "${message.id}">
           <div class="upper-message">
             <div class="upper-message__user-name">
               ${message.user_name}
@@ -52,10 +52,10 @@ $(function() {
 
 var reloadMessages = function() {
   if (window.location.href.match(/\/groups\/\d+\/messages/)){
-  var href = 'api/messages {:format=>"json"}' 
+  // var href = 'api/messages {:format=>"json"}' 
   //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
-  last_message_id = $('.message:last').data("message-id");
-
+  last_message_id = $('.message:last').data("id");
+  
   $.ajax({
     //ルーティングで設定した通りのURLを指定
     url:"api/messages",
@@ -84,7 +84,6 @@ var reloadMessages = function() {
   });
 
  };
-
- setInterval(reloadMessages, 7000);
 }
+setInterval(reloadMessages, 7000);
 });
